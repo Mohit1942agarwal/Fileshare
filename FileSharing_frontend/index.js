@@ -67,15 +67,29 @@ fileInput.addEventListener("change", () => {
 });
 
 // sharing container listenrs
+// copyURLBtn.addEventListener("click", () => {
+//   fileURL.select();
+//   document.execCommand("copy");
+//   showToast("Copied to clipboard");
+// });
+
+// fileURL.addEventListener("click", () => {
+//   fileURL.select();
+// });
 copyURLBtn.addEventListener("click", () => {
   fileURL.select();
-  document.execCommand("copy");
-  showToast("Copied to clipboard");
+  
+  // Use the Clipboard API to copy text
+  navigator.clipboard.writeText(fileURL.value)
+    .then(() => {
+      showToast("Copied to clipboard");
+    })
+    .catch(err => {
+      console.error("Could not copy text: ", err);
+      showToast("Failed to copy");
+    });
 });
 
-fileURL.addEventListener("click", () => {
-  fileURL.select();
-});
 
 const uploadFile = () => {
   console.log("file added uploading");
