@@ -13,8 +13,8 @@ async function sendMail({from,to,subject,text,html}) {
     });
 
     let info = await transporter.sendMail({
-        // from: `Mohit<${from}>`,
-        from: `FastFile <fastfilesharingapp@gmail.com>`,   // Updated sender email
+        from: `Mohit<${from}>`,
+        // from: `FastFile <fastfilesharingapp@gmail.com>`,   // Updated sender email
         to: to,
         subject: subject,
         text, //if key value are same then can write like this
